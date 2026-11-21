@@ -1,0 +1,109 @@
+[
+  {
+    "id": "total_nota",
+    "categoria": "fiscal",
+    "tabela": "notas",
+    "chave": {
+      "nota_id": 1
+    }
+  },
+  {
+    "id": "numero_ausente",
+    "categoria": "fiscal",
+    "tabela": "notas",
+    "chave": {
+      "serie": 1,
+      "numero": 5
+    }
+  },
+  {
+    "id": "nota_sem_itens",
+    "categoria": "fiscal",
+    "tabela": "notas",
+    "chave": {
+      "nota_id": 2
+    }
+  },
+  {
+    "id": "nota_sem_pedido",
+    "categoria": "fiscal",
+    "tabela": "notas",
+    "chave": {
+      "nota_id": 3
+    }
+  },
+  {
+    "id": "titulo_duplicado",
+    "categoria": "financeiro",
+    "tabela": "titulos",
+    "chave": {
+      "titulo_ids": [
+        4,
+        301
+      ]
+    }
+  },
+  {
+    "id": "titulo_sem_nota",
+    "categoria": "financeiro",
+    "tabela": "titulos",
+    "chave": {
+      "titulo_id": 3
+    }
+  },
+  {
+    "id": "titulo_valor_divergente",
+    "categoria": "financeiro",
+    "tabela": "titulos",
+    "chave": {
+      "titulo_ids": [
+        4,
+        301
+      ]
+    }
+  },
+  {
+    "id": "estoque_negativo",
+    "categoria": "estoque",
+    "tabela": "estoque_movimentos",
+    "chave": {
+      "produto_id": 1
+    }
+  },
+  {
+    "id": "produto_sem_movimento",
+    "categoria": "estoque",
+    "tabela": "produtos",
+    "chave": {
+      "produto_id": 2
+    }
+  },
+  {
+    "id": "saida_produto_inativo",
+    "categoria": "estoque",
+    "tabela": "estoque_movimentos",
+    "chave": {
+      "produto_id": 3,
+      "movimento_id": 3
+    }
+  },
+  {
+    "id": "cnpj_duplicado",
+    "categoria": "cadastro",
+    "tabela": "clientes",
+    "chave": {
+      "cliente_ids": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "id": "cliente_sem_email",
+    "categoria": "cadastro",
+    "tabela": "clientes",
+    "chave": {
+      "cliente_id": 3
+    }
+  }
+]
