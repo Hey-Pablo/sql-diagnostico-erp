@@ -2,7 +2,7 @@
 
 ## Pergunta de negócio
 
-Títulos em atraso precisam de acompanhamento: até 30 dias podem ser tratados normalmente, de 31 a 60 exigem contato do SAC, e acima de 60 dias podem precisar de negociação de renegociação. Em que faixa cada título em atraso está?
+Títulos em atraso precisam de acompanhamento: até 30 dias podem ser tratados normalmente, de 31 a 60 exigem contato do SAC, e acima de 60 dias podem exigir renegociação. Em que faixa cada título em atraso está?
 
 ## SQL
 
