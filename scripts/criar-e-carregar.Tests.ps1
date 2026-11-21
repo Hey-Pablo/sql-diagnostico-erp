@@ -4,7 +4,7 @@
 }
 AfterAll { Remove-Item Function:\docker -ErrorAction SilentlyContinue }
 Describe 'criar-e-carregar' {
-    It 'cria o banco e carrega os três arquivos na ordem correta' {
+    It 'executa as cinco chamadas de criação e carga' {
         Mock docker { $global:LASTEXITCODE = 0; $input | Out-Null }
         & $script:carga | Should -Contain 'Banco ERPDiagnostico criado e carregado.'
         Should -Invoke docker -Times 5 -Exactly

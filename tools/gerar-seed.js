@@ -4,10 +4,12 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 function gerar() {
+  let estado = 20261121; // Semente fixa para os dados sintéticos.
+  const proximo = () => { estado = (Math.imul(1664525, estado) + 1013904223) >>> 0; return estado; };
   const dados = { clientes: [], produtos: [], pedidos: [], pedido_itens: [], notas: [], nota_itens: [], titulos: [], estoque_movimentos: [] };
   for (let i = 1; i <= 300; i++) {
     dados.clientes.push({ cliente_id: i, razao_social: `Cliente ficticio ${i}`, cnpj: String(i === 2 ? 1 : i).padStart(14, '0'), email: i === 3 ? null : `cliente${i}@example.invalid`, ativo: 1 });
-    dados.produtos.push({ produto_id: i, sku: `SKU${i}`, descricao: `Produto ficticio ${i}`, ativo: i === 3 ? 0 : 1 });
+    dados.produtos.push({ produto_id: i, sku: `SKU${i}`, descricao: `Produto ficticio ${i} lote ${proximo() % 1000}`, ativo: i === 3 ? 0 : 1 });
     dados.pedidos.push({ pedido_id: i, cliente_id: i, data_pedido: '2025-01-01', status: 'FATURADO' });
     dados.pedido_itens.push({ pedido_id: i, item: 1, produto_id: i, quantidade: 1, valor_unitario: 100 });
     dados.notas.push({ nota_id: i, pedido_id: i === 3 ? null : i, cliente_id: i, serie: 1, numero: i >= 5 ? i + 1 : i, data_emissao: '2025-01-02', total: i === 1 ? 110 : 100 });
