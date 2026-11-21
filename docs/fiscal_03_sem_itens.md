@@ -14,7 +14,7 @@ WHERE i.nota_id IS NULL;
 
 ## Resultado esperado
 
-Para a carga versionada: nota_id=2. O gabarito identifica `nota_sem_itens`: `{"nota_id": 2}`. A ordem das linhas não são garantida.
+Para a carga versionada: nota_id=2. O gabarito identifica `nota_sem_itens`: `{"nota_id": 2}`. A ordem das linhas não é garantida.
 
 ## Quando usar
 
