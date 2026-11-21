@@ -1,8 +1,8 @@
-# Total divergente
+# Total divergente nas notas
 
 ## Pergunta de negócio
 
-Quais registros apresentam total divergente?
+Quando o total calculado dos itens não bate com o total da nota, o SPED rejeita e o cliente pode reclamar sobre cobrança incorreta. Quais notas possuem divergência entre o valor do total e a soma dos itens?
 
 ## SQL
 
@@ -19,4 +19,4 @@ Para a carga versionada: nota_id=1, total=110, total_itens=100. O gabarito ident
 
 ## Quando usar
 
-Use esta consulta na triagem de total divergente, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do envio ao SPED, ao gerar relatório de fiscalização, ou quando há pendência de lançamento contábil.

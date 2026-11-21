@@ -1,8 +1,8 @@
-# Clientes duplicados
+# Clientes com CNPJs duplicados
 
 ## Pergunta de negócio
 
-Quais registros apresentam clientes duplicados?
+O CNPJ é o identificador único do cliente, mas cadastros duplicados causam divergência de saldos e comunicações. Quais clientes apresentam o mesmo CNPJ em múltiplos registros, indicando duplicidade?
 
 ## SQL
 
@@ -19,4 +19,4 @@ Para a carga versionada: cliente_id=1 e 2, cnpj=00000000000001. O gabarito ident
 
 ## Quando usar
 
-Use esta consulta na triagem de clientes duplicados, antes de investigar e corrigir a origem dos dados.
+Use esta consulta no fechamento de contas, antes de consolidar movimentações, ou ao investigar divergências entre histórico e extrato.

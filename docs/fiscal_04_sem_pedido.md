@@ -1,8 +1,8 @@
-# Sem pedido
+# Notas sem pedido
 
 ## Pergunta de negócio
 
-Quais registros apresentam sem pedido?
+Notas emitidas sem pedido de venda vinculado indicam falha na integração com o módulo de pedidos ou nota aberta manualmente. Quais notas não possuem pedido relacionado?
 
 ## SQL
 
@@ -18,4 +18,4 @@ Para a carga versionada: nota_id=3. O gabarito identifica `nota_sem_pedido`: `{"
 
 ## Quando usar
 
-Use esta consulta na triagem de sem pedido, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do envio ao SPED, ao gerar relatório de fiscalização, ou quando há pendência de lançamento contábil.

@@ -1,8 +1,8 @@
-# Sem itens
+# Notas sem itens
 
 ## Pergunta de negócio
 
-Quais registros apresentam sem itens?
+Notas cadastradas sem itens indicam falha na importação ou processamento, evitando a emissão de documento fiscal completo. Quais notas não possuem itens vinculados?
 
 ## SQL
 
@@ -18,4 +18,4 @@ Para a carga versionada: nota_id=2. O gabarito identifica `nota_sem_itens`: `{"n
 
 ## Quando usar
 
-Use esta consulta na triagem de sem itens, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do envio ao SPED, ao gerar relatório de fiscalização, ou quando há pendência de lançamento contábil.

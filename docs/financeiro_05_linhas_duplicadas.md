@@ -1,8 +1,8 @@
-# Linhas duplicadas
+# Linhas de título duplicadas
 
 ## Pergunta de negócio
 
-Quais registros apresentam linhas duplicadas?
+Lançamentos de título com os mesmos dados de cliente, documento e parcela criam risco de pagamento duplicado. Quais títulos possuem o mesmo número documental, indicando duplicidade?
 
 ## SQL
 
@@ -21,4 +21,4 @@ Para a carga versionada: titulo_id=4 e 301, cliente_id=4, numero_documento=DUP, 
 
 ## Quando usar
 
-Use esta consulta na triagem de linhas duplicadas, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do fechamento financeiro, ao conciliar com o SPED, ou quando há divergência entre relatório e extrato bancário.

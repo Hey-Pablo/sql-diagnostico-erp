@@ -1,8 +1,8 @@
-# Duplicados
+# Títulos duplicados
 
 ## Pergunta de negócio
 
-Quais registros apresentam duplicados?
+Títulos com mesmos dados de cliente, documento e parcela criam risco de pagamento duplicado e divergência no controle de caixa. Quais títulos possuem o mesmo número documental, indicando duplicidade?
 
 ## SQL
 
@@ -18,4 +18,4 @@ Para a carga versionada: cliente_id=4, numero_documento=DUP, parcela=1, quantida
 
 ## Quando usar
 
-Use esta consulta na triagem de duplicados, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do fechamento financeiro, ao conciliar com o SPED, ou quando há divergência entre relatório e extrato bancário.

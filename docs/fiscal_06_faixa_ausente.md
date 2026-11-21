@@ -1,8 +1,8 @@
-# Faixa ausente
+# Faixa de números ausentes
 
 ## Pergunta de negócio
 
-Quais registros apresentam faixa ausente?
+Números saltados na sequência de notas podem indicar falha de emissão, exclusão acidental ou tentativa de burlar controle de numeração. Quantos números estão faltando em cada série?
 
 ## SQL
 
@@ -21,4 +21,4 @@ Para a carga versionada: serie=1, numero=6, quantidade_faltante=1. O gabarito id
 
 ## Quando usar
 
-Use esta consulta na triagem de faixa ausente, antes de investigar e corrigir a origem dos dados.
+Use esta consulta no fechamento do mês, antes da auditoria da série, ou quando há suspeita de falha na numeração.

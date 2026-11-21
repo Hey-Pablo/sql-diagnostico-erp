@@ -1,8 +1,8 @@
-# Movimentos negativos
+# Movimentos com quantidade negativa
 
 ## Pergunta de negócio
 
-Quais registros apresentam movimentos negativos?
+Lançamentos com valores negativos em estoque podem ser legítimos (devoluções) ou erros de digitação. Quais movimentos possuem quantidade negativa, indicando necessidade de validação manual?
 
 ## SQL
 
@@ -20,4 +20,4 @@ Para a carga versionada: movimento_id=1, produto_id=1, quantidade=-1. O gabarito
 
 ## Quando usar
 
-Use esta consulta na triagem de movimentos negativos, antes de investigar e corrigir a origem dos dados.
+Use esta consulta para validar lançamentos de estoque, detectar erros de digitação, ou auditorar devoluções e ajustes.
