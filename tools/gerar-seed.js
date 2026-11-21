@@ -12,7 +12,7 @@ function gerar() {
     dados.pedido_itens.push({ pedido_id: i, item: 1, produto_id: i, quantidade: 1, valor_unitario: 100 });
     dados.notas.push({ nota_id: i, pedido_id: i === 3 ? null : i, cliente_id: i, serie: 1, numero: i >= 5 ? i + 1 : i, data_emissao: '2025-01-02', total: i === 1 ? 110 : 100 });
     if (i !== 2) dados.nota_itens.push({ nota_id: i, item: 1, produto_id: i, quantidade: 1, valor_unitario: 100 });
-    dados.titulos.push({ titulo_id: i, nota_id: i === 3 ? null : i, cliente_id: i, numero_documento: i === 4 ? 'DUP' : `DOC${i}`, parcela: 1, data_vencimento: '2025-02-01', valor: i === 4 ? 120 : (i === 1 ? 110 : 100), data_pagamento: '2025-02-01' });
+    dados.titulos.push({ titulo_id: i, nota_id: i === 3 ? null : i, cliente_id: i, numero_documento: i === 4 ? 'DUP' : `DOC${i}`, parcela: 1, data_vencimento: '2025-02-01', valor: i === 4 ? 120 : (i === 1 ? 110 : 100), data_pagamento: i === 4 ? null : '2025-02-01' });
     if (i !== 2) dados.estoque_movimentos.push({ movimento_id: i, produto_id: i, data_movimento: '2025-01-01', quantidade: i === 1 || i === 3 ? -1 : 10, tipo: i === 1 || i === 3 ? 'SAIDA' : 'ENTRADA' });
   }
   // Entrada compensa a saída do produto inativo; somente o produto 1 fica negativo.

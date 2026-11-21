@@ -1809,7 +1809,7 @@ INSERT INTO dbo.titulos (titulo_id, nota_id, cliente_id, numero_documento, parce
 (1, 1, 1, N'DOC1', 1, N'2025-02-01', 110, N'2025-02-01'),
 (2, 2, 2, N'DOC2', 1, N'2025-02-01', 100, N'2025-02-01'),
 (3, NULL, 3, N'DOC3', 1, N'2025-02-01', 100, N'2025-02-01'),
-(4, 4, 4, N'DUP', 1, N'2025-02-01', 120, N'2025-02-01'),
+(4, 4, 4, N'DUP', 1, N'2025-02-01', 120, NULL),
 (5, 5, 5, N'DOC5', 1, N'2025-02-01', 100, N'2025-02-01'),
 (6, 6, 6, N'DOC6', 1, N'2025-02-01', 100, N'2025-02-01'),
 (7, 7, 7, N'DOC7', 1, N'2025-02-01', 100, N'2025-02-01'),
@@ -2106,7 +2106,7 @@ INSERT INTO dbo.titulos (titulo_id, nota_id, cliente_id, numero_documento, parce
 (298, 298, 298, N'DOC298', 1, N'2025-02-01', 100, N'2025-02-01'),
 (299, 299, 299, N'DOC299', 1, N'2025-02-01', 100, N'2025-02-01'),
 (300, 300, 300, N'DOC300', 1, N'2025-02-01', 100, N'2025-02-01'),
-(301, 4, 4, N'DUP', 1, N'2025-02-01', 120, N'2025-02-01');
+(301, 4, 4, N'DUP', 1, N'2025-02-01', 120, NULL);
 INSERT INTO dbo.estoque_movimentos (movimento_id, produto_id, data_movimento, quantidade, tipo) VALUES
 (1, 1, N'2025-01-01', -1, N'SAIDA'),
 (3, 3, N'2025-01-01', -1, N'SAIDA'),
