@@ -1,8 +1,8 @@
-# Cnpj duplicado
+# CNPJs duplicados nos clientes
 
 ## Pergunta de negócio
 
-Quais registros apresentam cnpj duplicado?
+A SEFAZ rejeita a abertura de novos clientes quando já existe um CNPJ cadastrado com outro código. Quais clientes compartilham o mesmo CNPJ, indicando cadastro duplicado ou erro de digitação?
 
 ## SQL
 
@@ -16,4 +16,4 @@ Para a carga versionada: cnpj=00000000000001, quantidade=2. O gabarito identific
 
 ## Quando usar
 
-Use esta consulta na triagem de cnpj duplicado, antes de investigar e corrigir a origem dos dados.
+Use esta consulta ao auditar novos cadastros, antes de migrar dados para o ERP, ou quando há reclamações de cliente sobre falha na inclusão.
