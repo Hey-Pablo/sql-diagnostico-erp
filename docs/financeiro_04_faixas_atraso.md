@@ -1,8 +1,8 @@
-# Faixas atraso
+# Títulos em faixas de atraso
 
 ## Pergunta de negócio
 
-Quais registros apresentam faixas atraso?
+Títulos em atraso precisam de acompanhamento: até 30 dias podem ser tratados normalmente, de 31 a 60 exigem contato do SAC, e acima de 60 dias podem precisar de negociação de renegociação. Em que faixa cada título em atraso está?
 
 ## SQL
 
@@ -23,4 +23,4 @@ Para a carga versionada: titulo_id=4 e 301, dias=42, faixa=31-60. O gabarito ide
 
 ## Quando usar
 
-Use esta consulta na triagem de faixas atraso, antes de investigar e corrigir a origem dos dados.
+Use esta consulta no controle de cobrança, para gerar relatório de atrasos, ou ao triar títulos para contato do SAC.

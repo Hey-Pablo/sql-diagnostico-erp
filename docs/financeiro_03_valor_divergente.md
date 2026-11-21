@@ -1,8 +1,8 @@
-# Valor divergente
+# Títulos com valor divergente
 
 ## Pergunta de negócio
 
-Quais registros apresentam valor divergente?
+Quando o valor do título não bate com o total da nota fiscal, há divergência na contabilização. O SPED rejeita essas incidências e o cliente pode reclamar sobre cobrança incorreta. Quais títulos possuem valor diferente do total da nota?
 
 ## SQL
 
@@ -18,4 +18,4 @@ Para a carga versionada: titulo_id=4 e 301, nota_id=4, valor=120, total=100. O g
 
 ## Quando usar
 
-Use esta consulta na triagem de valor divergente, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do envio ao SPED, ao gerar relatório de fiscalização, ou quando há pendência de lançamento contábil.

@@ -1,8 +1,8 @@
-# Sem nota
+# Títulos sem nota fiscal
 
 ## Pergunta de negócio
 
-Quais registros apresentam sem nota?
+Títulos cadastrados sem nota fiscal vinculada indicam falha na integração com a SEFAZ, evitando a baixa do contabil. Quais títulos não possuem nota fiscal relacionada?
 
 ## SQL
 
@@ -18,4 +18,4 @@ Para a carga versionada: titulo_id=3. O gabarito identifica `titulo_sem_nota`: `
 
 ## Quando usar
 
-Use esta consulta na triagem de sem nota, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do envio ao SPED, ao gerar relatório de fiscalização, ou quando há pendência de lançamento contábil.
