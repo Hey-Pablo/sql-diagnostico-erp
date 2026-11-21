@@ -1,8 +1,8 @@
-# Diferenca valor
+# Diferença de valor entre nota e itens
 
 ## Pergunta de negócio
 
-Quais registros apresentam diferenca valor?
+Quando o total da nota não bate com o total calculado dos itens, há divergência na contabilização. O SPED rejeita e o cliente pode reclamar sobre cobrança incorreta. Quais notas possuem diferença entre o valor declarado e os itens?
 
 ## SQL
 
@@ -22,4 +22,4 @@ Para a carga versionada: nota_id=1, diferenca=10. O gabarito identifica `total_n
 
 ## Quando usar
 
-Use esta consulta na triagem de diferenca valor, antes de investigar e corrigir a origem dos dados.
+Use esta consulta antes do envio ao SPED, ao gerar relatório de fiscalização, ou quando há pendência de lançamento contábil.

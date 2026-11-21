@@ -1,8 +1,8 @@
-# Numeracao
+# Buracos na numeração das notas
 
 ## Pergunta de negócio
 
-Quais registros apresentam numeracao?
+A SEFAZ rejeita ou o cliente reclama quando falta número na sequência de notas de uma série. Quais números estão faltando em cada série de notas?
 
 ## SQL
 
@@ -21,4 +21,4 @@ Para a carga versionada: serie=1, primeiro_faltante=5, ultimo_faltante=5. O gaba
 
 ## Quando usar
 
-Use esta consulta na triagem de numeracao, antes de investigar e corrigir a origem dos dados.
+Use esta consulta no fechamento do mês, ao auditar a série antes de enviar o SPED, ou quando o cliente aponta nota 'sumida'.
