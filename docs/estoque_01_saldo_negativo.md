@@ -1,8 +1,8 @@
-# Saldo negativo
+# Saldo negativo no estoque
 
 ## Pergunta de negócio
 
-Quais registros apresentam saldo negativo?
+Produtos com saldo negativo indicam mais saídas do que entradas, causando ruptura de estoque e imprescricibilidade para atender pedidos. Quais produtos possuem saldo menor que zero, indicando necessidade imediata de reposição?
 
 ## SQL
 
@@ -17,4 +17,4 @@ Para a carga versionada: produto_id=1, saldo=-1. O gabarito identifica `estoque_
 
 ## Quando usar
 
-Use esta consulta na triagem de saldo negativo, antes de investigar e corrigir a origem dos dados.
+Use esta consulta no fechamento de estoque, após o recebimento de mercadorias, ou quando há reclamações de falta de produtos em armazém.

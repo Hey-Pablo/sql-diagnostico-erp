@@ -1,8 +1,8 @@
-# Sem movimento
+# Produtos sem movimento
 
 ## Pergunta de negócio
 
-Quais registros apresentam sem movimento?
+Produtos sem nenhum registro de movimento no estoque indicam necessidade de revisão: podem ser itens obsoletos, duplicados ou sem ser vendidos. Quais produtos nunca tiveram entrada ou saída registrada?
 
 ## SQL
 
@@ -18,4 +18,4 @@ Para a carga versionada: produto_id=2. O gabarito identifica `produto_sem_movime
 
 ## Quando usar
 
-Use esta consulta na triagem de sem movimento, antes de investigar e corrigir a origem dos dados.
+Use esta consulta no inventário periódico, para cleanup de produtos órfãos, ou ao revisar a linha de produtos ativos.

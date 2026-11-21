@@ -1,8 +1,8 @@
-# Saldo janela
+# Saldo negativo na primeira linha de movimento
 
 ## Pergunta de negócio
 
-Quais registros apresentam saldo janela?
+Em alguns sistemas, o saldo negativo só é visível na primeira movimentação da série, quando antes era zero ou positivo. Isso pode indicar erro de cálculo ou lançamento fora de sequência. Quais produtos tiveram saldo negativo desde a primeira movimentação?
 
 ## SQL
 
@@ -21,4 +21,4 @@ Para a carga versionada: produto_id=1, saldo=-1. O gabarito identifica `estoque_
 
 ## Quando usar
 
-Use esta consulta na triagem de saldo janela, antes de investigar e corrigir a origem dos dados.
+Use esta consulta para investigar inconsistências de saldo no início de séries, antes de corrigir valores, ou ao migrar dados entre ERPs.

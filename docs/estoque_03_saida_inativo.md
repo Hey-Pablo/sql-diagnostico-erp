@@ -1,8 +1,8 @@
-# Saida inativo
+# Saídas de produtos inativos
 
 ## Pergunta de negócio
 
-Quais registros apresentam saida inativo?
+Lançar saída de estoque para um produto inativo indica cadastro inconsistente ou erro de operação. Quais movimentos de saída referenciam produtos que não estão mais ativos?
 
 ## SQL
 
@@ -18,4 +18,4 @@ Para a carga versionada: movimento_id=3, produto_id=3. O gabarito identifica `sa
 
 ## Quando usar
 
-Use esta consulta na triagem de saida inativo, antes de investigar e corrigir a origem dos dados.
+Use esta consulta após a desativação de produtos, para identificar movimentações pendentes, ou quando há divergência entre histórico e situação atual dos produtos.
