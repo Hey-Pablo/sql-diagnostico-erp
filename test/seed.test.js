@@ -36,3 +36,33 @@ test('os 12 erros do gabarito existem nos dados', () => {
     assert.ok(checks[erro.id](), `erro ausente: ${erro.id}`);
   }
 });
+
+// As chaves são verificadas independentemente do gerador para evitar um gabarito
+// que aponte para um registro diferente daquele efetivamente plantado.
+test('gabarito identifica a tabela, a categoria e as chaves esperadas', () => {
+  const { erros } = gerar();
+  const esperado = [
+    ['total_nota','fiscal','notas',{nota_id:1}], ['numero_ausente','fiscal','notas',{serie:1,numero:5}],
+    ['nota_sem_itens','fiscal','notas',{nota_id:2}], ['nota_sem_pedido','fiscal','notas',{nota_id:3}],
+    ['titulo_duplicado','financeiro','titulos',{titulo_ids:[4,301]}], ['titulo_sem_nota','financeiro','titulos',{titulo_id:3}],
+    ['titulo_valor_divergente','financeiro','titulos',{titulo_ids:[4,301]}], ['estoque_negativo','estoque','estoque_movimentos',{produto_id:1}],
+    ['produto_sem_movimento','estoque','produtos',{produto_id:2}], ['saida_produto_inativo','estoque','estoque_movimentos',{produto_id:3,movimento_id:3}],
+    ['cnpj_duplicado','cadastro','clientes',{cliente_ids:[1,2]}], ['cliente_sem_email','cadastro','clientes',{cliente_id:3}],
+  ].map(([id,categoria,tabela,chave]) => ({id,categoria,tabela,chave}));
+  assert.deepEqual(erros, esperado);
+});
+
+test('consultas possuem documentação com o SQL correspondente', () => {
+  const path = require('node:path');
+  const categorias = { fiscal: 6, financeiro: 5, estoque: 5, cadastro: 4 };
+  for (const [categoria, quantidade] of Object.entries(categorias)) {
+    const arquivos = fs.readdirSync(path.join('consultas', categoria)).filter(n => n.endsWith('.sql'));
+    assert.equal(arquivos.length, quantidade);
+    for (const arquivo of arquivos) {
+      const sql = fs.readFileSync(path.join('consultas', categoria, arquivo), 'utf8').trim();
+      const doc = fs.readFileSync(path.join('docs', `${categoria}_${arquivo.replace(/\.sql$/, '.md')}`), 'utf8');
+      assert.ok(doc.includes('```sql\n' + sql + '\n```'), arquivo);
+      assert.match(doc, /## Resultado esperado/);
+    }
+  }
+});
