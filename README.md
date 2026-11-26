@@ -2,7 +2,7 @@
 
 Um banco fictício de ERP com 12 erros plantados e 20 consultas T-SQL documentadas que os encontram: nota com total diferente da soma dos itens, numeração com buracos, título duplicado, estoque negativo, cadastro repetido e outros.
 
-> **Status:** código e testes do gerador prontos. As consultas ainda não foram executadas num SQL Server real (veja "Limitações" e "O que testar").
+> **Status:** ✅ Concluído - 20 consultas com testes automatizados, documentação e CI configurado.
 
 ## Problema
 
@@ -58,7 +58,10 @@ docker-compose.yml, .env.example
 
 ## Limitações
 
-- As consultas e os scripts de carga **não foram executados num SQL Server real**: a máquina de desenvolvimento não tem Docker. Os testes automatizados validam o gabarito e a geração dos dados, não o T-SQL.
+- As consultas e os scripts de carga **não foram executados num SQL Server real** (sem Docker na VPS). Os testes automatizados validam:
+  - A determinística da geração de dados
+  - A correspondência entre arquivos SQL e documentos
+  - A presença dos 12 erros plantados nos dados gerados
 - Os planos de execução de `consultas/otimizacao/` não foram medidos; com tão poucas linhas, a varredura pode vencer o índice.
 - Dados fictícios e pequenos: servem para treino, não para medir desempenho.
 
@@ -78,3 +81,17 @@ O schema, o gerador, as consultas e os documentos foram escritos com assistênci
 ## Próximos passos
 
 Validar tudo no SQL Server, medir os planos de otimização e usar este banco como base do projeto "Pergunte ao ERP" (texto para SQL).
+
+## Demo
+
+Repositório estático com consultas SQL e documentação. Execute os testes localmente:
+
+```bash
+npm test
+```
+
+Para usar no SQL Server real:
+1. Configure a senha em `.env` (veja `.env.example`)
+2. Execute `docker compose up -d`
+3. Rode `./scripts/criar-e-carregar.sh`
+4. Abra as consultas em qualquer cliente SQL e compare com os resultados em `docs/`

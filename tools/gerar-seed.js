@@ -1,7 +1,4 @@
-'use strict';
 // Dados sintéticos reproduzíveis. Não utiliza dados de pessoas ou empresas reais.
-const fs = require('node:fs');
-const path = require('node:path');
 
 function gerar() {
   let estado = 20261121; // Semente fixa para os dados sintéticos.
@@ -38,10 +35,4 @@ function gerar() {
   }
   return { dados, erros, sql };
 }
-if (require.main === module) {
-  const { sql, erros } = gerar();
-  const root = path.resolve(__dirname, '..');
-  fs.writeFileSync(path.join(root, 'seed/03_dados.sql'), sql);
-  fs.writeFileSync(path.join(root, 'docs/erros-plantados.json'), JSON.stringify(erros, null, 2) + '\n');
-}
-module.exports = { gerar };
+export { gerar };

@@ -1,8 +1,8 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const { execFileSync } = require('node:child_process');
-const { gerar } = require('../tools/gerar-seed');
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { gerar } from '../tools/gerar-seed.js';
 
 test('carga e gabarito são determinísticos e correspondem aos arquivos versionados', () => {
   const a = gerar();
@@ -47,20 +47,19 @@ test('gabarito identifica a tabela, a categoria e as chaves esperadas', () => {
     ['titulo_duplicado','financeiro','titulos',{titulo_ids:[4,301]}], ['titulo_sem_nota','financeiro','titulos',{titulo_id:3}],
     ['titulo_valor_divergente','financeiro','titulos',{titulo_ids:[4,301]}], ['estoque_negativo','estoque','estoque_movimentos',{produto_id:1}],
     ['produto_sem_movimento','estoque','produtos',{produto_id:2}], ['saida_produto_inativo','estoque','estoque_movimentos',{produto_id:3,movimento_id:3}],
-    ['cnpj_duplicado','cadastro','clientes',{cliente_ids:[1,2]}], ['cliente_sem_email','cadastro','clientes',{cliente_id:3}],
+    ['cnpj_duplicado','cadastro','clientes',{cliente_ids:[1,2]}], ['cliente_sem_email','cadastro','clientes',{cliente_id:3}]
   ].map(([id,categoria,tabela,chave]) => ({id,categoria,tabela,chave}));
   assert.deepEqual(erros, esperado);
 });
 
 test('consultas possuem documentação com o SQL correspondente', () => {
-  const path = require('node:path');
   const categorias = { fiscal: 6, financeiro: 5, estoque: 5, cadastro: 4 };
   for (const [categoria, quantidade] of Object.entries(categorias)) {
-    const arquivos = fs.readdirSync(path.join('consultas', categoria)).filter(n => n.endsWith('.sql'));
+    const arquivos = fs.readdirSync(`consultas/${categoria}`).filter(n => n.endsWith('.sql'));
     assert.equal(arquivos.length, quantidade);
     for (const arquivo of arquivos) {
-      const sql = fs.readFileSync(path.join('consultas', categoria, arquivo), 'utf8').trim();
-      const doc = fs.readFileSync(path.join('docs', `${categoria}_${arquivo.replace(/\.sql$/, '.md')}`), 'utf8');
+      const sql = fs.readFileSync(`consultas/${categoria}/${arquivo}`, 'utf8').trim();
+      const doc = fs.readFileSync(`docs/${categoria}_${arquivo.replace(/\.sql$/, '.md')}`, 'utf8');
       assert.ok(doc.includes('```sql\n' + sql + '\n```'), arquivo);
       assert.match(doc, /## Resultado esperado/);
     }

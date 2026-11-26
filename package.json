@@ -1,0 +1,12 @@
+{
+  "name": "sql-diagnostico-erp",
+  "version": "1.0.0",
+  "description": "SQL diagnostics for fictional ERP - 20 diagnostic queries with tests",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "test:query": "node --test test/consultas.test.mjs"
+  },
+  "keywords": ["sql", "diagnostico", "erp", "queries"],
+  "license": "ISC"
+}
