@@ -1,8 +1,9 @@
 # Consultas SQL para Diagnóstico de ERP
 
-Um banco fictício de ERP com 12 erros plantados e 20 consultas T-SQL documentadas que os encontram: nota com total diferente da soma dos itens, numeração com buracos, título duplicado, estoque negativo, cadastro repetido e outros.
-
 > **Status:** ✅ Concluído - 20 consultas com testes automatizados, documentação e CI configurado.
+> **Demonstração:** [Ver no GitHub Pages](https://hey-pablo.github.io/sql-diagnostico-erp/)
+
+Um banco fictício de ERP com 12 erros plantados e 20 consultas T-SQL documentadas que os encontram: nota com total diferente da soma dos itens, numeração com buracos, título duplicado, estoque negativo, cadastro repetido e outros.
 
 ## Problema
 
@@ -74,6 +75,31 @@ docker-compose.yml, .env.example
 
 Qualquer divergência ou erro de sintaxe: abra uma issue com o nome do arquivo e a mensagem.
 
+## Telas
+
+### Execução dos testes
+
+![Tests passing](docs/img/tests-pass.png)
+
+### Terminal de saída
+
+![Terminal output](docs/img/terminal.png)
+
+### Tela completa
+
+![Full terminal](docs/img/terminal-full.png)
+
+### Mobile view
+
+![Mobile view](docs/img/terminal-mobile.png)
+
+## GIF de demonstração
+
+```text
+docs/demo.gif
+```
+Animação mostrando a execução dos testes com a saída completa.
+
 ## Onde a IA entrou
 
 O schema, o gerador, as consultas e os documentos foram escritos com assistência de IA e revisados; a execução no SQL Server fica a cargo de quem for usar.
@@ -81,17 +107,3 @@ O schema, o gerador, as consultas e os documentos foram escritos com assistênci
 ## Próximos passos
 
 Validar tudo no SQL Server, medir os planos de otimização e usar este banco como base do projeto "Pergunte ao ERP" (texto para SQL).
-
-## Demo
-
-Repositório estático com consultas SQL e documentação. Execute os testes localmente:
-
-```bash
-npm test
-```
-
-Para usar no SQL Server real:
-1. Configure a senha em `.env` (veja `.env.example`)
-2. Execute `docker compose up -d`
-3. Rode `./scripts/criar-e-carregar.sh`
-4. Abra as consultas em qualquer cliente SQL e compare com os resultados em `docs/`

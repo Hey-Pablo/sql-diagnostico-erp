@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sql-diagnostico-erp</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .terminal {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #252526;
+      border: 1px solid #3c3c3c;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .terminal-header {
+      background: #333;
+      border-bottom: 1px solid #3c3c3c;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .terminal-buttons {
+      display: flex;
+      gap: 6px;
+    }
+    .terminal-buttons span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .btn-close { background: #ff5f57; }
+    .btn-minimize { background: #ffbd2e; }
+    .btn-maximize { background: #28ca42; }
+    .terminal-title {
+      margin-left: 10px;
+      color: #9cdcfe;
+      font-size: 13px;
+    }
+    .terminal-body {
+      padding: 16px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-x: auto;
+    }
+    .prompt { color: #4ec9b0; }
+    .command { color: #dcdcaa; }
+    .output { color: #d4d4d4; }
+    .pass { color: #4ec9b0; }
+    .fail { color: #f44747; }
+    .summary { color: #9cdcfe; }
+    .info { color: #9cdcfe; }
+    .skip { color: #dcdcaa; }
+    .duration { color: #ce9178; }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background: #fff;
+      animation: blink 1s infinite;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+    .line { margin: 2px 0; }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <span class="btn-close"></span>
+        <span class="btn-minimize"></span>
+        <span class="btn-maximize"></span>
+      </div>
+      <span class="terminal-title">node --test</span>
+    </div>
+    <div class="terminal-body" id="terminal"></div>
+  </div>
+  <script>
+    const output = `✔ consultas fiscais retornam resultados corretos (58.02ms)
+✔ consultas financeiras retornam resultados corretos (38.15ms)
+✔ consultas de estoque retornam resultados corretos (13.98ms)
+✔ consultas de cadastro retornam resultados corretos (12.02ms)
+✔ todos os arquivos SQL existem e possuem conteúdo (30.69ms)
+✔ todos os documentos de consulta existem com estrutura correta (41.66ms)
+✔ o script de carga gera dados consistentes (84.02ms)
+✔ os 12 erros plantados estão presentes nos dados (27.25ms)
+✔ o gabarito identifica corretamente tabela, categoria e chaves (33.50ms)
+✔ consultas otimizacao possuem estrutura valida (0.60ms)
+✔ carga e gabarito são determinísticos e correspondem aos arquivos versionados (359.62ms)
+✔ os 12 erros do gabarito existem nos dados (13.56ms)
+✔ gabarito identifica a tabela, a categoria e as chaves esperadas (11.06ms)
+✔ consultas possuem documentação com o SQL correspondente (16.60ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5681.02ms`;
+
+    const terminal = document.getElementById('terminal');
+    const lines = output.split('\n');
+    let lineIndex = 0;
+
+    function typeLine() {
+      if (lineIndex >= lines.length) {
+        const promptLine = document.createElement('div');
+        promptLine.className = 'line';
+        promptLine.innerHTML = '<span class="prompt">$</span> <span class="command">node --test</span>';
+        terminal.appendChild(promptLine);
+        return;
+      }
+
+      const line = lines[lineIndex];
+      const lineEl = document.createElement('div');
+      lineEl.className = 'line';
+
+      let cls = 'output';
+      if (line.startsWith('✔')) cls = 'pass';
+      else if (line.startsWith('✖') || line.startsWith('✕')) cls = 'fail';
+      else if (line.startsWith('ℹ')) cls = 'info';
+      else if (line.startsWith('⚠')) cls = 'skip';
+
+      lineEl.innerHTML = `<span class="${cls}">${escapeHtml(line)}</span>`;
+      terminal.appendChild(lineEl);
+      terminal.scrollTop = terminal.scrollHeight;
+      lineIndex++;
+      setTimeout(typeLine, 80);
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    const initialPrompt = document.createElement('div');
+    initialPrompt.className = 'line';
+    initialPrompt.innerHTML = '<span class="prompt">$</span> <span class="command">node --test</span>';
+    terminal.appendChild(initialPrompt);
+
+    setTimeout(typeLine, 500);
+  </script>
+</body>
+</html>
