@@ -1,7 +1,8 @@
 # Consultas SQL para Diagnóstico de ERP
 
 > **Status:** ✅ Concluído - 20 consultas com testes automatizados, documentação e CI configurado.
-> **Demonstração:** [Ver no GitHub Pages](https://hey-pablo.github.io/sql-diagnostico-erp/)
+
+![Demonstração](docs/img/demo.gif)
 
 Um banco fictício de ERP com 12 erros plantados e 20 consultas T-SQL documentadas que os encontram: nota com total diferente da soma dos itens, numeração com buracos, título duplicado, estoque negativo, cadastro repetido e outros.
 
@@ -92,13 +93,6 @@ Qualquer divergência ou erro de sintaxe: abra uma issue com o nome do arquivo e
 ### Mobile view
 
 ![Mobile view](docs/img/terminal-mobile.png)
-
-## GIF de demonstração
-
-```text
-docs/demo.gif
-```
-Animação mostrando a execução dos testes com a saída completa.
 
 ## Onde a IA entrou
 
